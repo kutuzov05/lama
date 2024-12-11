@@ -13,5 +13,7 @@ BLACK = (0, 0, 0)
 BLUE = (215, 235, 255)
 RED = (255, 215, 215)
 
-words = ["Wasser", "Feuer"]
-slot_l, slot_r = "Wasser", "Feuer"
+words = ["Wasser", "Feuer", "Erde", "Luft"]
+slot_l, slot_r = None, None
+pos = 0
+scroll_strength = height*0.03
