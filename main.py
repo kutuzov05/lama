@@ -31,13 +31,15 @@ def modul(key1, key2):
     }
 
     data["messages"].append(msg)
+    try:
+        response = requests.post(ollama_url, json=data).json();
+        answer = response["message"]
 
-    response = requests.post(ollama_url, json=data).json();
-    answer = response["message"]
+        data["messages"].append(answer)
 
-    data["messages"].append(answer)
-
-    return answer["content"]
+        return answer["content"]
+    except requests.exceptions.ConnectionError:
+        return "Error"
 
 
 def show_boxes():
@@ -111,3 +113,4 @@ while running:
     screen.fill(WHITE)
     show_boxes()
     pygame.display.update()
+
